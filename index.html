@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículum Profesional - Ariel Protto</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: #f4f6f8;
+        color: #333;
+    }
+    header {
+        background: #2e8b57;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    header h1 { margin:0; font-size: 36px; }
+    header p { margin: 5px 0 0 0; font-size: 18px; }
+    main { max-width: 900px; margin: 20px auto; padding: 0 20px; }
+    .tabs { display: flex; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
+    .tab {
+        background: #fff;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: 0.2s;
+    }
+    .tab.active { background: #2e8b57; color: white; }
+    section { display: none; background: white; padding: 20px 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    section.active { display: block; }
+    ul { list-style: none; padding: 0; }
+    ul li { margin-bottom: 10px; }
+    .skills span {
+        display: inline-block;
+        background: #2e8b57;
+        color: white;
+        padding: 5px 10px;
+        margin: 5px 5px 0 0;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .btn-pdf {
+        display: inline-block;
+        margin-top: 15px;
+        background: #2e8b57;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+    .btn-pdf:hover { background: #246b44; }
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
+    @media(max-width:600px){
+        header h1{ font-size:28px; }
+        header p{ font-size:16px; }
+        .tab{ flex:1 1 100%; text-align:center; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Ariel Protto</h1>
+    <p>Técnico en Redes, Telefonía y Programación Web</p>
+</header>
+
+<main>
+    <div class="tabs">
+        <div class="tab active" data-tab="perfil">Perfil</div>
+        <div class="tab" data-tab="experiencia">Experiencia</div>
+        <div class="tab" data-tab="habilidades">Habilidades</div>
+        <div class="tab" data-tab="contacto">Contacto</div>
+    </div>
+
+    <section id="perfil" class="active">
+        <p>Profesional con más de 10 años de experiencia en redes, telefonía IP y mantenimiento de equipos de escritorio y portátiles. Con conocimientos sólidos en programación web (PHP, HTML, CSS) y gestión de infraestructuras de red y sistemas Wi-Fi.</p>
+        <a href="CV-Ariel-Protto.pdf" class="btn-pdf" target="_blank">Descargar PDF</a>
+    </section>
+
+    <section id="experiencia">
+        <ul>
+            <li><strong>Redes y Telefonía:</strong> Instalación y mantenimiento de cableados estructurados, implementación de centrales telefónicas IP, configuración de zonas Wi-Fi.</li>
+            <li><strong>Soporte Técnico:</strong> Mantenimiento preventivo y correctivo de PCs y portátiles, instalación de sistemas operativos y programas.</li>
+            <li><strong>Programación Web:</strong> Desarrollo y maquetado de aplicaciones en PHP, HTML y CSS.</li>
+        </ul>
+    </section>
+
+    <section id="habilidades">
+        <div class="skills">
+            <span>PHP</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Redes LAN/WAN</span>
+            <span>Telefonía IP</span>
+            <span>Wi-Fi</span>
+            <span>Soporte Técnico</span>
+            <span>Mantenimiento PC</span>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <ul>
+            <li>Email: <a href="mailto:arielprotto@example.com">arielprotto@example.com</a></li>
+            <li>Teléfono: +54 9 XX XXXX XXXX</li>
+            <li>GitHub: <a href="https://github.com/arielprotto" target="_blank">github.com/arielprotto</a></li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    &copy; 2026 Ariel Protto. Todos los derechos reservados.
+</footer>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('section');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const target = tab.dataset.tab;
+            sections.forEach(section => {
+                if(section.id === target) section.classList.add('active');
+                else section.classList.remove('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
