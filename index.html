@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corrientes Pora</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+    position:relative;
+    max-width:700px;
+    z-index:2;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+    color:#d1d5db;
+}
+
+.btn-primary{
+    background:#22c55e;
+    padding:14px 28px;
+    border-radius:10px;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn-primary:hover{
+    background:#16a34a;
+}
+
+/* MAPA */
+.map{
+    width:100%;
+    height:400px;
+}
+
+/* BENEFICIOS */
+.benefits{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.benefits h2{
+    margin-bottom:40px;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    width:280px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    padding:16px;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:22px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Impulsá tu negocio en Corrientes</h1>
+        <p>Sumate a la comunidad y obtené mayor visibilidad, más clientes y costos accesibles.</p>
+        <a href="https://wa.me/549XXXXXXXXX" class="btn-primary" target="_blank">
+            Contactar por WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- MAPA INTERACTIVO -->
+<iframe class="map"
+src="https://www.google.com/maps?q=Corrientes,Argentina&output=embed">
+</iframe>
+
+<section class="benefits">
+    <h2>¿Por qué sumarte?</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>📍 Más Visibilidad</h3>
+            <p>Tu negocio destacado en el mapa y buscadores locales.</p>
+        </div>
+        <div class="card">
+            <h3>📲 Contacto Directo</h3>
+            <p>Clientes te escriben directo por WhatsApp.</p>
+        </div>
+        <div class="card">
+            <h3>💰 Bajo Costo</h3>
+            <p>Publicidad accesible para emprendedores y profesionales.</p>
+        </div>
+    </div>
+</section>
+
+<a href="https://wa.me/549XXXXXXXXX" class="whatsapp" target="_blank">🟢</a>
+
+</body>
+  </html>
