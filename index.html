@@ -3,299 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Culto Café | Buenos Aires</title>
+<title>Culto Café | Vintage Cafetería en Buenos Aires</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
 
 body{
-font-family:'Montserrat', sans-serif;
-background:#f8f6f2;
-color:#222;
-overflow-x:hidden;
-}
-
-/* NAV */
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-.logo{
-font-family:'Playfair Display', serif;
-font-size:22px;
-letter-spacing:3px;
-}
-
-nav a{
-text-decoration:none;
-color:#222;
-margin-left:25px;
-font-size:14px;
-letter-spacing:1px;
+font-family:'Poppins',sans-serif;
+background:#111;
+color:#fff;
 }
 
 /* HERO */
-header{
+.hero{
+position:relative;
 height:100vh;
-background:url('fachada.jpg') center/cover no-repeat;
+background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2070') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
-position:relative;
+text-align:center;
+overflow:hidden;
 }
 
-header::after{
+/* Overlay oscuro elegante */
+.hero::after{
 content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
 }
 
+/* Partículas */
+.particles span{
+position:absolute;
+display:block;
+width:4px;
+height:4px;
+background:#c8a97e;
+border-radius:50%;
+animation: float 10s linear infinite;
+opacity:0.6;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) scale(0);}
+100%{transform:translateY(-10vh) scale(1);}
+}
+
+/* Contenido */
 .hero-content{
 position:relative;
-color:white;
-text-align:center;
 z-index:2;
 }
 
-.hero-content h1{
-font-family:'Playfair Display', serif;
-font-size:70px;
-letter-spacing:6px;
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:80px;
+letter-spacing:8px;
+color:#f5e6d3;
+animation: fadeIn 2s ease forwards;
 }
 
-.hero-content p{
+.hero p{
 margin-top:15px;
-font-weight:300;
-letter-spacing:2px;
+font-size:20px;
+color:#c8a97e;
+animation: fadeIn 3s ease forwards;
 }
 
 .btn{
 display:inline-block;
 margin-top:30px;
-padding:12px 28px;
-background:white;
-color:black;
+padding:14px 40px;
+background:#c8a97e;
+color:#111;
+border-radius:50px;
 text-decoration:none;
-font-size:14px;
-letter-spacing:2px;
-transition:0.3s;
+font-weight:500;
+transition:0.4s;
 }
 
 .btn:hover{
-background:black;
-color:white;
-}
-
-/* SECTIONS */
-section{
-padding:120px 10%;
-}
-
-h2{
-font-family:'Playfair Display', serif;
-font-size:42px;
-text-align:center;
-margin-bottom:60px;
-letter-spacing:3px;
-}
-
-/* HISTORIA */
-.historia{
-max-width:700px;
-margin:auto;
-text-align:center;
-line-height:1.8;
-font-weight:300;
-}
-
-/* GALERIA */
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.galeria img{
-width:100%;
-height:350px;
-object-fit:cover;
-transition:0.4s;
-filter:grayscale(20%);
-}
-
-.galeria img:hover{
+background:#e6c199;
 transform:scale(1.05);
-filter:grayscale(0%);
 }
 
-/* MENU */
-.menu-grid{
+/* SECCIONES */
+section{
+padding:100px 10%;
+text-align:center;
+}
+
+section h2{
+font-family:'Playfair Display',serif;
+font-size:40px;
+margin-bottom:40px;
+color:#c8a97e;
+}
+
+/* GALERÍA */
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-text-align:center;
+gap:20px;
 }
 
-.menu-item h3{
-font-family:'Playfair Display', serif;
-font-size:20px;
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+transition:0.4s;
 }
 
-.menu-item p{
-margin-top:5px;
-font-size:14px;
-letter-spacing:1px;
-}
-
-.precio{
-margin-top:10px;
-font-weight:500;
-letter-spacing:2px;
+.gallery img:hover{
+transform:scale(1.05);
 }
 
 /* CONTACTO */
-.contacto{
-text-align:center;
-}
-
-.redes{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.redes a{
+.contact a{
+display:block;
+margin:10px 0;
+color:#c8a97e;
 text-decoration:none;
-color:#222;
-font-size:14px;
-letter-spacing:2px;
-border:1px solid #222;
-padding:12px 25px;
+font-size:18px;
 transition:0.3s;
 }
 
-.redes a:hover{
-background:#222;
-color:white;
+.contact a:hover{
+color:#fff;
 }
 
 /* FOOTER */
 footer{
-padding:60px 10%;
+padding:30px;
 text-align:center;
-background:#111;
-color:white;
+background:#000;
+color:#777;
+font-size:14px;
 }
 
-/* MOBILE */
+/* Animación Fade */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* Responsive */
 @media(max-width:768px){
-.hero-content h1{
-font-size:40px;
+.hero h1{font-size:50px;}
+section{padding:80px 6%;}
 }
-.galeria img{
-height:250px;
-}
-.redes{
-flex-direction:column;
-gap:15px;
-}
-}
+
 </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">CULTO CAFÉ</div>
-<div>
-<a href="#historia">Historia</a>
-<a href="#galeria">Galería</a>
-<a href="#menu">Menú</a>
-<a href="#contacto">Contacto</a>
+<!-- HERO -->
+<section class="hero">
+<div class="particles">
+<span style="left:10%;animation-duration:12s;"></span>
+<span style="left:20%;animation-duration:10s;"></span>
+<span style="left:30%;animation-duration:14s;"></span>
+<span style="left:40%;animation-duration:9s;"></span>
+<span style="left:50%;animation-duration:13s;"></span>
+<span style="left:60%;animation-duration:11s;"></span>
+<span style="left:70%;animation-duration:15s;"></span>
+<span style="left:80%;animation-duration:10s;"></span>
+<span style="left:90%;animation-duration:12s;"></span>
 </div>
-</nav>
 
-<header>
 <div class="hero-content">
 <h1>CULTO CAFÉ</h1>
-<p>ARTE • CAFÉ • EXPERIENCIA</p>
-<a href="#galeria" class="btn">EXPLORAR</a>
+<p>Donde el café se convierte en ritual.</p>
+<a href="#contacto" class="btn">Reservar Mesa</a>
 </div>
-</header>
+</section>
 
-<section id="historia">
-<h2>NUESTRA ESENCIA</h2>
-<div class="historia">
+<!-- HISTORIA -->
+<section>
+<h2>Nuestra Historia</h2>
 <p>
-Culto Café es un espacio donde la estética se fusiona con el aroma del café recién molido.
-Inspirado en las cafeterías boutique de Buenos Aires,
-cada rincón fue pensado para ser vivido… y fotografiado.
+En una esquina histórica de Buenos Aires nació Culto Café,
+un espacio donde el aroma del grano recién molido
+y la estética vintage crean una experiencia única.
+Aquí el café no se sirve… se honra.
 </p>
+</section>
+
+<!-- GALERÍA -->
+<section>
+<h2>Experiencia Culto</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1974">
+<img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1974">
+<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1974">
+<img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1974">
 </div>
 </section>
 
-<section id="galeria">
-<h2>MOMENTOS CULTO</h2>
-<div class="galeria">
-<img src="cafe1.jpg">
-<img src="mesa.jpg">
-<img src="croissant.jpg">
-<img src="interior.jpg">
-</div>
-</section>
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+<h2>Contacto</h2>
+<p>Av. Regimiento de Patricios 76<br>
+Cdad. Autónoma de Buenos Aires</p>
 
-<section id="menu">
-<h2>MENÚ DESTACADO</h2>
-<div class="menu-grid">
-<div class="menu-item">
-<h3>ESPRESSO</h3>
-<p>Intenso y aromático</p>
-<div class="precio">$2.200</div>
-</div>
-<div class="menu-item">
-<h3>CAPPUCCINO</h3>
-<p>Espuma cremosa</p>
-<div class="precio">$2.800</div>
-</div>
-<div class="menu-item">
-<h3>CROISSANT ARTESANAL</h3>
-<p>Hojaldre premium</p>
-<div class="precio">$3.000</div>
-</div>
-</div>
-</section>
-
-<section id="contacto">
-<h2>CONTACTO</h2>
-<div class="contacto">
-<p>Av. Regimiento de Patricios 76 | CABA</p>
-
-<div class="redes">
-<a href="https://www.instagram.com/culto.arg" target="_blank">INSTAGRAM</a>
-<a href="#" target="_blank">FACEBOOK</a>
-<a href="https://wa.me/549XXXXXXXXXX" target="_blank">WHATSAPP</a>
-</div>
-
-</div>
+<a href="https://instagram.com/culto.arg" target="_blank">Instagram: @culto.arg</a>
+<a href="#">Facebook: Culto Café</a>
+<a href="https://wa.me/5490000000000" target="_blank">WhatsApp</a>
 </section>
 
 <footer>
-<p>© 2026 Culto Café - Buenos Aires</p>
+© 2026 Culto Café — Sitio desarrollado con estilo internacional.
 </footer>
 
 </body>
