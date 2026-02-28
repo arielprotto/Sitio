@@ -3,136 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culto Café | Buenos Aires</title>
 
-<title>Culto Café | Cafetería Vintage en Barracas - Buenos Aires</title>
-
-<meta name="description" content="Culto Café es una cafetería vintage ubicada en Barracas, Ciudad Autónoma de Buenos Aires. Café de especialidad, croissants artesanales y ambiente cálido.">
-<meta name="keywords" content="café en Barracas, cafetería en CABA, café vintage Buenos Aires, croissant artesanal, café cerca de mí">
-<meta name="author" content="Culto Café">
-
-<meta property="og:title" content="Culto Café | Cafetería Vintage en Buenos Aires">
-<meta property="og:description" content="Descubrí un rincón vintage en Barracas con café de especialidad y pastelería artesanal.">
-<meta property="og:type" content="website">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg-light:#f4efe8;
---text-light:#3b2a23;
---bg-dark:#1e1e1e;
---text-dark:#f4efe8;
---accent:#c8a96a;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:'Poppins', sans-serif;
-background:var(--bg-light);
-color:var(--text-light);
-transition:0.4s;
-margin:0;
+font-family:'Montserrat', sans-serif;
+background:#f8f6f2;
+color:#222;
+overflow-x:hidden;
 }
 
-body.dark{
-background:var(--bg-dark);
-color:var(--text-dark);
-}
-
+/* NAV */
 nav{
 position:fixed;
-width:100%;
 top:0;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(8px);
-padding:15px 10%;
+width:100%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
 z-index:1000;
 }
 
 .logo{
 font-family:'Playfair Display', serif;
-color:white;
 font-size:22px;
-letter-spacing:2px;
+letter-spacing:3px;
 }
 
-.toggle-dark{
-cursor:pointer;
-color:white;
-font-size:18px;
+nav a{
+text-decoration:none;
+color:#222;
+margin-left:25px;
+font-size:14px;
+letter-spacing:1px;
 }
 
+/* HERO */
 header{
 height:100vh;
 background:url('fachada.jpg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
+position:relative;
+}
+
+header::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+}
+
+.hero-content{
+position:relative;
+color:white;
 text-align:center;
+z-index:2;
+}
+
+.hero-content h1{
+font-family:'Playfair Display', serif;
+font-size:70px;
+letter-spacing:6px;
+}
+
+.hero-content p{
+margin-top:15px;
+font-weight:300;
+letter-spacing:2px;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:12px 28px;
+background:white;
+color:black;
+text-decoration:none;
+font-size:14px;
+letter-spacing:2px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:black;
 color:white;
 }
 
-.overlay{
-background:rgba(0,0,0,0.6);
-padding:50px;
-border-radius:12px;
-}
-
+/* SECTIONS */
 section{
-padding:100px 10%;
+padding:120px 10%;
 }
 
 h2{
 font-family:'Playfair Display', serif;
-font-size:40px;
+font-size:42px;
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
+letter-spacing:3px;
 }
 
+/* HISTORIA */
+.historia{
+max-width:700px;
+margin:auto;
+text-align:center;
+line-height:1.8;
+font-weight:300;
+}
+
+/* GALERIA */
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.galeria img{
+width:100%;
+height:350px;
+object-fit:cover;
+transition:0.4s;
+filter:grayscale(20%);
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+filter:grayscale(0%);
+}
+
+/* MENU */
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
 text-align:center;
-transition:0.3s;
 }
 
-body.dark .card{
-background:#2b2b2b;
+.menu-item h3{
+font-family:'Playfair Display', serif;
+font-size:20px;
+}
+
+.menu-item p{
+margin-top:5px;
+font-size:14px;
+letter-spacing:1px;
 }
 
 .precio{
 margin-top:10px;
-font-weight:bold;
-color:var(--accent);
+font-weight:500;
+letter-spacing:2px;
 }
 
-footer{
-background:#3b2a23;
-color:white;
+/* CONTACTO */
+.contacto{
 text-align:center;
-padding:40px;
 }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:16px;
-border-radius:50%;
-font-size:22px;
+.redes{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.redes a{
 text-decoration:none;
+color:#222;
+font-size:14px;
+letter-spacing:2px;
+border:1px solid #222;
+padding:12px 25px;
+transition:0.3s;
+}
+
+.redes a:hover{
+background:#222;
+color:white;
+}
+
+/* FOOTER */
+footer{
+padding:60px 10%;
+text-align:center;
+background:#111;
+color:white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero-content h1{
+font-size:40px;
+}
+.galeria img{
+height:250px;
+}
+.redes{
+flex-direction:column;
+gap:15px;
+}
 }
 </style>
 </head>
@@ -141,45 +222,81 @@ text-decoration:none;
 
 <nav>
 <div class="logo">CULTO CAFÉ</div>
-<div class="toggle-dark" onclick="toggleDark()">🌙</div>
+<div>
+<a href="#historia">Historia</a>
+<a href="#galeria">Galería</a>
+<a href="#menu">Menú</a>
+<a href="#contacto">Contacto</a>
+</div>
 </nav>
 
 <header>
-<div class="overlay">
-<h1 style="font-family:'Playfair Display'; font-size:60px;">Culto Café</h1>
-<p>Cafetería vintage en Barracas, Buenos Aires</p>
+<div class="hero-content">
+<h1>CULTO CAFÉ</h1>
+<p>ARTE • CAFÉ • EXPERIENCIA</p>
+<a href="#galeria" class="btn">EXPLORAR</a>
 </div>
 </header>
 
-<section>
-<h2>Menú Destacado</h2>
+<section id="historia">
+<h2>NUESTRA ESENCIA</h2>
+<div class="historia">
+<p>
+Culto Café es un espacio donde la estética se fusiona con el aroma del café recién molido.
+Inspirado en las cafeterías boutique de Buenos Aires,
+cada rincón fue pensado para ser vivido… y fotografiado.
+</p>
+</div>
+</section>
+
+<section id="galeria">
+<h2>MOMENTOS CULTO</h2>
+<div class="galeria">
+<img src="cafe1.jpg">
+<img src="mesa.jpg">
+<img src="croissant.jpg">
+<img src="interior.jpg">
+</div>
+</section>
+
+<section id="menu">
+<h2>MENÚ DESTACADO</h2>
 <div class="menu-grid">
-<div class="card">
-<h3>Espresso Italiano</h3>
+<div class="menu-item">
+<h3>ESPRESSO</h3>
+<p>Intenso y aromático</p>
 <div class="precio">$2.200</div>
 </div>
-<div class="card">
-<h3>Cappuccino</h3>
+<div class="menu-item">
+<h3>CAPPUCCINO</h3>
+<p>Espuma cremosa</p>
 <div class="precio">$2.800</div>
 </div>
-<div class="card">
-<h3>Croissant Artesanal</h3>
+<div class="menu-item">
+<h3>CROISSANT ARTESANAL</h3>
+<p>Hojaldre premium</p>
 <div class="precio">$3.000</div>
 </div>
 </div>
 </section>
 
+<section id="contacto">
+<h2>CONTACTO</h2>
+<div class="contacto">
+<p>Av. Regimiento de Patricios 76 | CABA</p>
+
+<div class="redes">
+<a href="https://www.instagram.com/culto.arg" target="_blank">INSTAGRAM</a>
+<a href="#" target="_blank">FACEBOOK</a>
+<a href="https://wa.me/549XXXXXXXXXX" target="_blank">WHATSAPP</a>
+</div>
+
+</div>
+</section>
+
 <footer>
-<p>Av. Regimiento de Patricios 76 | Barracas - CABA</p>
+<p>© 2026 Culto Café - Buenos Aires</p>
 </footer>
-
-<a href="https://wa.me/549XXXXXXXXXX" class="whatsapp">💬</a>
-
-<script>
-function toggleDark(){
-document.body.classList.toggle("dark");
-}
-</script>
 
 </body>
 </html>
