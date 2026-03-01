@@ -270,11 +270,6 @@ nextBtn.addEventListener("click",()=>{
     currentIndex=(currentIndex+1)%menuImages.length;
     lightboxImg.src=menuImages[currentIndex].src;
 });
-window.addEventListener("keydown",(e)=>{
-    if(e.key==="Escape"){lightbox.classList.remove("active");}
-    if(e.key==="ArrowLeft"){prevBtn.click();}
-    if(e.key==="ArrowRight"){nextBtn.click();}
-});
 
 /* MENU HAMBURGUESA */
 const toggleBtn = document.getElementById('menu-toggle');
@@ -282,6 +277,18 @@ const navLinks = document.getElementById('nav-links');
 
 toggleBtn.addEventListener('click', ()=>{
   navLinks.classList.toggle('show');
+});
+
+// CERRAR MENÚ AL HACER CLICK EN LINK
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+  });
+});
+
+// CERRAR MENÚ AL HACER SCROLL
+window.addEventListener('scroll', () => {
+  navLinks.classList.remove('show');
 });
 </script>
 
