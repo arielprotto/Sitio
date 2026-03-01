@@ -43,7 +43,7 @@ nav ul li a:hover{color:#c8a97e;}
 .hero-content{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;padding:0 20px;}
 .hero h1{display:flex;align-items:center;gap:20px;font-family:'Playfair Display',serif;font-size:85px;letter-spacing:8px;background:linear-gradient(90deg,#c8a97e,#f5e6d3,#c8a97e);background-size:200% auto;color:transparent;-webkit-background-clip:text;animation:shine 6s linear infinite;}
 .hero h1 img{width:70px;height:70px;border-radius:50%;}
-.hero p{margin-top:15px;font-size:22px;color:#e6c199;}
+.hero p{margin-top:15px;font-size:22px;color:#e6c199;text-align:center;}
 .btn{display:inline-block;margin-top:35px;padding:15px 45px;border:2px solid #c8a97e;color:#c8a97e;text-decoration:none;border-radius:50px;transition:0.4s;}
 .btn:hover{background:#c8a97e;color:#111;}
 @keyframes shine{to{background-position:200% center;}}
@@ -54,11 +54,11 @@ section.visible{opacity:1;transform:translateY(0);}
 section h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:40px;color:#c8a97e;}
 
 /* MENU */
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
 .menu-item{position:relative;overflow:hidden;border-radius:20px;cursor:pointer;}
-.menu-item img{width:100%;height:250px;object-fit:cover;transition:0.5s;}
+.menu-item img{width:100%;height:200px;object-fit:cover;transition:0.5s;}
 .menu-item:hover img{transform:scale(1.1);}
-.menu-overlay{position:absolute;bottom:0;width:100%;background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);padding:15px;color:#fff;font-size:16px;letter-spacing:1px;}
+.menu-overlay{position:absolute;bottom:0;width:100%;background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);padding:10px;color:#fff;font-size:14px;letter-spacing:1px;}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:0.4s;z-index:3000;backdrop-filter:blur(8px);}
@@ -79,8 +79,8 @@ section h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:40p
 .branch-card a:hover{background:#c8a97e;color:#111;}
 
 /* CONTACTO */
-.contact-icons{margin-top:20px;}
-.contact-icons a{color:#c8a97e;font-size:28px;margin:0 15px;transition:0.3s;}
+.contact-icons{margin-top:20px;display:flex;justify-content:center;flex-wrap:wrap;}
+.contact-icons a{color:#c8a97e;font-size:28px;margin:10px 15px;transition:0.3s;}
 .contact-icons a:hover{color:#fff;}
 
 footer{padding:30px;background:#000;color:#777;text-align:center;}
@@ -91,6 +91,7 @@ footer{padding:30px;background:#000;color:#777;text-align:center;}
 .hero h1 img{width:60px;height:60px;}
 .hero p{font-size:20px;}
 .btn{padding:12px 35px;font-size:14px;}
+.menu-item img{height:180px;}
 }
 @media(max-width:768px){
 .hero h1{font-size:45px;flex-direction:column;}
@@ -98,12 +99,28 @@ footer{padding:30px;background:#000;color:#777;text-align:center;}
 .hero p{font-size:18px;}
 .btn{padding:10px 25px;font-size:13px;}
 .lightbox span.arrow{font-size:40px;}
+.menu-item img{height:150px;}
 }
 @media(max-width:480px){
 .hero h1{font-size:35px;}
 .hero h1 img{width:40px;height:40px;}
 .hero p{font-size:16px;}
 .btn{padding:8px 20px;font-size:12px;}
+.menu-item img{height:120px;}
+/* Sucursales mobile friendly */
+.branches{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  padding:0 10px;
+}
+.branch-card{
+  padding:20px;
+}
+.branch-card a{
+  padding:8px 15px;
+  font-size:13px;
+}
 }
 </style>
 </head>
@@ -153,10 +170,30 @@ footer{padding:30px;background:#000;color:#777;text-align:center;}
 <section id="sucursales">
 <h2>Sucursales en Buenos Aires</h2>
 <div class="branches">
-<div class="branch-card"><h3>Palermo</h3><p>Honduras 5001</p><p>Lunes a Domingo · 8:00 a 20:00</p><a href="#" target="_blank">Cómo llegar</a></div>
-<div class="branch-card"><h3>Recoleta</h3><p>Av. Santa Fe 1800</p><p>Lunes a Domingo · 8:00 a 20:00</p><a href="#" target="_blank">Cómo llegar</a></div>
-<div class="branch-card"><h3>Puerto Madero</h3><p>Alicia Moreau de Justo 900</p><p>Lunes a Domingo · 9:00 a 21:00</p><a href="#" target="_blank">Cómo llegar</a></div>
-<div class="branch-card"><h3>La Boca</h3><p>Av. Regimiento de Patricios 76</p><p>Lunes a Domingo · 8:00 a 20:00</p><a href="#" target="_blank">Cómo llegar</a></div>
+<div class="branch-card">
+<h3>Palermo</h3>
+<p>Honduras 5001</p>
+<p>Lunes a Domingo · 8:00 a 20:00</p>
+<a href="https://www.google.com/maps/search/?api=1&query=Honduras+5001+Buenos+Aires" target="_blank">Cómo llegar</a>
+</div>
+<div class="branch-card">
+<h3>Recoleta</h3>
+<p>Av. Santa Fe 1800</p>
+<p>Lunes a Domingo · 8:00 a 20:00</p>
+<a href="https://www.google.com/maps/search/?api=1&query=Av+Santa+Fe+1800+Buenos+Aires" target="_blank">Cómo llegar</a>
+</div>
+<div class="branch-card">
+<h3>Puerto Madero</h3>
+<p>Alicia Moreau de Justo 900</p>
+<p>Lunes a Domingo · 9:00 a 21:00</p>
+<a href="https://www.google.com/maps/search/?api=1&query=Alicia+Moreau+de+Justo+900+Buenos+Aires" target="_blank">Cómo llegar</a>
+</div>
+<div class="branch-card">
+<h3>La Boca</h3>
+<p>Av. Regimiento de Patricios 76</p>
+<p>Lunes a Domingo · 8:00 a 20:00</p>
+<a href="https://www.google.com/maps/search/?api=1&query=Av+Regimiento+de+Patricios+76+Buenos+Aires" target="_blank">Cómo llegar</a>
+</div>
 </div>
 </section>
 
@@ -236,10 +273,6 @@ window.addEventListener("keydown",(e)=>{
     if(e.key==="ArrowLeft"){prevBtn.click();}
     if(e.key==="ArrowRight"){nextBtn.click();}
 });
-
-/* AUTO TOUR DESACTIVADO */
-// function autoTour() { ... }
-// window.addEventListener("load", () => { setTimeout(autoTour, 2000); });
 </script>
 
 </body>
