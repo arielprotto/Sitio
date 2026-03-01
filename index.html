@@ -78,8 +78,22 @@ section h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:40p
 .lightbox span.next{right:30px;}
 
 /* SUCURSALES */
-.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
-.branch-card{background:#1a1a1a;padding:30px;border-radius:20px;transition:0.4s;border:1px solid #222;}
+.branches{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  justify-items:center;
+}
+.branch-card{
+  background:#1a1a1a;
+  padding:25px;
+  border-radius:20px;
+  border:1px solid #222;
+  transition:0.4s;
+  width:100%;
+  max-width:350px;
+  text-align:center;
+}
 .branch-card:hover{transform:translateY(-8px);border-color:#c8a97e;}
 .branch-card h3{color:#c8a97e;margin-bottom:15px;font-family:'Playfair Display',serif;}
 .branch-card p{color:#ccc;margin-bottom:10px;font-size:14px;}
@@ -119,8 +133,8 @@ section{padding:80px 20px;}
 .hero p{font-size:16px;}
 .btn{padding:8px 20px;font-size:12px;}
 .menu-item img{height:120px;}
-.branches{display:flex;overflow-x:auto;gap:15px;padding-bottom:10px;}
-.branch-card{min-width:250px;flex:0 0 auto;padding:20px;}
+.branches{grid-template-columns:1fr;gap:15px;}
+.branch-card{max-width:100%;padding:20px;}
 .contact-icons a{font-size:24px;margin:10px;}
 }
 </style>
@@ -172,30 +186,24 @@ section{padding:80px 20px;}
 <section id="sucursales">
 <h2>Sucursales en Buenos Aires</h2>
 <div class="branches">
-<div class="branch-card">
-<h3>Palermo</h3>
-<p>Honduras 5001</p>
-<p>Lunes a Domingo · 8:00 a 20:00</p>
-<a href="https://www.google.com/maps/search/?api=1&query=Honduras+5001+Buenos+Aires" target="_blank">Cómo llegar</a>
-</div>
-<div class="branch-card">
-<h3>Recoleta</h3>
-<p>Av. Santa Fe 1800</p>
-<p>Lunes a Domingo · 8:00 a 20:00</p>
-<a href="https://www.google.com/maps/search/?api=1&query=Av+Santa+Fe+1800+Buenos+Aires" target="_blank">Cómo llegar</a>
-</div>
-<div class="branch-card">
-<h3>Puerto Madero</h3>
-<p>Alicia Moreau de Justo 900</p>
-<p>Lunes a Domingo · 9:00 a 21:00</p>
-<a href="https://www.google.com/maps/search/?api=1&query=Alicia+Moreau+de+Justo+900+Buenos+Aires" target="_blank">Cómo llegar</a>
-</div>
-<div class="branch-card">
-<h3>La Boca</h3>
-<p>Av. Regimiento de Patricios 76</p>
-<p>Lunes a Domingo · 8:00 a 20:00</p>
-<a href="https://www.google.com/maps/search/?api=1&query=Av+Regimiento+de+Patricios+76+Buenos+Aires" target="_blank">Cómo llegar</a>
-</div>
+  <div class="branch-card">
+    <h3>Barracas</h3>
+    <p>Av. Regimiento de Patricios 76</p>
+    <p>Lunes a Domingo · 8:00 a 20:00</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Av+Regimiento+de+Patricios+76+Buenos+Aires" target="_blank">Cómo llegar</a>
+  </div>
+  <div class="branch-card">
+    <h3>Microcentro</h3>
+    <p>Esmeralda 699</p>
+    <p>Lunes a Domingo · 8:00 a 20:00</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Esmeralda+699+Buenos+Aires" target="_blank">Cómo llegar</a>
+  </div>
+  <div class="branch-card">
+    <h3>Villa Pueyrredón</h3>
+    <p>Av. Mosconi 2202</p>
+    <p>Lunes a Domingo · 8:00 a 20:00</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Av+Mosconi+2202+Buenos+Aires" target="_blank">Cómo llegar</a>
+  </div>
 </div>
 </section>
 
