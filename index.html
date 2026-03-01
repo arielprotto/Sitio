@@ -37,11 +37,10 @@ nav ul li a{color:white;text-decoration:none;font-size:14px;letter-spacing:1px;t
 nav ul li a:hover{color:#c8a97e;}
 
 /* HERO */
-.hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:black;}
-.video-bg{position:absolute;top:50%;left:50%;min-width:110%;min-height:110%;transform:translate(-50%, -50%) scale(1);object-fit:cover;z-index:1;filter:brightness(0.6);animation: slowZoom 25s ease-in-out infinite alternate;}
-@keyframes slowZoom{0%{transform:translate(-50%, -50%) scale(1);}100%{transform:translate(-50%, -50%) scale(1.15);} }
+.hero{position:relative;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;}
+.video-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(0.6);}
 .overlay{position:absolute;width:100%;height:100%;background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));z-index:2;}
-.hero-content{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;}
+.hero-content{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;padding:0 20px;}
 .hero h1{display:flex;align-items:center;gap:20px;font-family:'Playfair Display',serif;font-size:85px;letter-spacing:8px;background:linear-gradient(90deg,#c8a97e,#f5e6d3,#c8a97e);background-size:200% auto;color:transparent;-webkit-background-clip:text;animation:shine 6s linear infinite;}
 .hero h1 img{width:70px;height:70px;border-radius:50%;}
 .hero p{margin-top:15px;font-size:22px;color:#e6c199;}
@@ -86,10 +85,25 @@ section h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:40p
 
 footer{padding:30px;background:#000;color:#777;text-align:center;}
 
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero h1{font-size:60px;flex-direction:column;}
+.hero h1 img{width:60px;height:60px;}
+.hero p{font-size:20px;}
+.btn{padding:12px 35px;font-size:14px;}
+}
 @media(max-width:768px){
 .hero h1{font-size:45px;flex-direction:column;}
 .hero h1 img{width:50px;height:50px;}
+.hero p{font-size:18px;}
+.btn{padding:10px 25px;font-size:13px;}
 .lightbox span.arrow{font-size:40px;}
+}
+@media(max-width:480px){
+.hero h1{font-size:35px;}
+.hero h1 img{width:40px;height:40px;}
+.hero p{font-size:16px;}
+.btn{padding:8px 20px;font-size:12px;}
 }
 </style>
 </head>
@@ -167,12 +181,24 @@ footer{padding:30px;background:#000;color:#777;text-align:center;}
 
 <script>
 /* CARGA Y NAVBAR */
-window.addEventListener("load", function(){setTimeout(()=>{document.getElementById("loader").classList.add("hidden");},1500);});
-window.addEventListener("scroll", function(){document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);});
+window.addEventListener("load", function(){
+    setTimeout(()=>{
+        document.getElementById("loader").classList.add("hidden");
+    },1500);
+});
+window.addEventListener("scroll", function(){
+    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+});
 
 /* SECCIONES VISIBLES */
 const sections=document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{sections.forEach(sec=>{if(sec.getBoundingClientRect().top<window.innerHeight-100){sec.classList.add("visible");}});});
+window.addEventListener("scroll", ()=>{
+    sections.forEach(sec=>{
+        if(sec.getBoundingClientRect().top<window.innerHeight-100){
+            sec.classList.add("visible");
+        }
+    });
+});
 
 /* LIGHTBOX */
 const lightbox=document.getElementById("lightbox");
@@ -183,31 +209,37 @@ const nextBtn=document.getElementById("next");
 const menuImages=document.querySelectorAll(".menu-item img");
 
 let currentIndex=0;
-function showLightbox(index){currentIndex=index;lightbox.classList.add("active");lightboxImg.src=menuImages[currentIndex].src;}
-menuImages.forEach((img,i)=>{img.addEventListener("click",()=>{showLightbox(i);});});
-closeBtn.addEventListener("click",()=>{lightbox.classList.remove("active");});
-lightbox.addEventListener("click",(e)=>{if(e.target!==lightboxImg && e.target!==prevBtn && e.target!==nextBtn){lightbox.classList.remove("active");}});
-prevBtn.addEventListener("click",()=>{currentIndex=(currentIndex-1+menuImages.length)%menuImages.length;lightboxImg.src=menuImages[currentIndex].src;});
-nextBtn.addEventListener("click",()=>{currentIndex=(currentIndex+1)%menuImages.length;lightboxImg.src=menuImages[currentIndex].src;});
-window.addEventListener("keydown",(e)=>{if(e.key==="Escape"){lightbox.classList.remove("active");}if(e.key==="ArrowLeft"){prevBtn.click();}if(e.key==="ArrowRight"){nextBtn.click();}});
-
-/* TOUR AUTOMÁTICO PARA DEMO */
-function autoTour() {
-  const menuItems = document.querySelectorAll(".menu-item img");
-  const sections = document.querySelectorAll("section");
-  let delay = 1000;
-  sections.forEach((sec) => {
-    setTimeout(() => { sec.scrollIntoView({behavior: "smooth", block: "center"}); }, delay);
-    delay += 1500;
-  });
-  menuItems.forEach((img) => {
-    setTimeout(() => { img.click(); }, delay);
-    delay += 1200;
-    setTimeout(() => { document.getElementById("closeLightbox").click(); }, delay);
-  });
-  setTimeout(() => { document.getElementById("contacto").scrollIntoView({behavior: "smooth", block: "center"}); }, delay + 1000);
+function showLightbox(index){
+    currentIndex=index;
+    lightbox.classList.add("active");
+    lightboxImg.src=menuImages[currentIndex].src;
 }
-window.addEventListener("load", () => { setTimeout(autoTour, 2000); });
+menuImages.forEach((img,i)=>{
+    img.addEventListener("click",()=>{showLightbox(i);});
+});
+closeBtn.addEventListener("click",()=>{lightbox.classList.remove("active");});
+lightbox.addEventListener("click",(e)=>{
+    if(e.target!==lightboxImg && e.target!==prevBtn && e.target!==nextBtn){
+        lightbox.classList.remove("active");
+    }
+});
+prevBtn.addEventListener("click",()=>{
+    currentIndex=(currentIndex-1+menuImages.length)%menuImages.length;
+    lightboxImg.src=menuImages[currentIndex].src;
+});
+nextBtn.addEventListener("click",()=>{
+    currentIndex=(currentIndex+1)%menuImages.length;
+    lightboxImg.src=menuImages[currentIndex].src;
+});
+window.addEventListener("keydown",(e)=>{
+    if(e.key==="Escape"){lightbox.classList.remove("active");}
+    if(e.key==="ArrowLeft"){prevBtn.click();}
+    if(e.key==="ArrowRight"){nextBtn.click();}
+});
+
+/* AUTO TOUR DESACTIVADO */
+// function autoTour() { ... }
+// window.addEventListener("load", () => { setTimeout(autoTour, 2000); });
 </script>
 
 </body>
