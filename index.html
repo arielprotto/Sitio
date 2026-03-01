@@ -102,24 +102,36 @@ footer{padding:30px;background:#000;color:#777;text-align:center;}
 .menu-item img{height:150px;}
 }
 @media(max-width:480px){
+section{padding:80px 20px;} /* reduce padding general */
+
 .hero h1{font-size:35px;}
 .hero h1 img{width:40px;height:40px;}
 .hero p{font-size:16px;}
 .btn{padding:8px 20px;font-size:12px;}
 .menu-item img{height:120px;}
-/* Sucursales mobile friendly */
+
+/* Sucursales: scroll horizontal */
 .branches{
   display:flex;
-  flex-direction:column;
+  overflow-x:auto;
   gap:15px;
-  padding:0 10px;
+  padding-bottom:10px;
 }
 .branch-card{
+  min-width:250px;
+  flex:0 0 auto;
   padding:20px;
 }
-.branch-card a{
-  padding:8px 15px;
-  font-size:13px;
+
+/* Contacto móvil */
+.contact-icons{
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+.contact-icons a{
+  font-size:24px;
+  margin:10px;
 }
 }
 </style>
